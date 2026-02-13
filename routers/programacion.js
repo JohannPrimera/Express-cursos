@@ -51,7 +51,7 @@ routerProgramacion.put("/:id", (req, res) => {
     const id = req.params.id;
     
     //nos permite encontrar el indice de un elemento en un arreglo
-    const indice = programacion.findIndex(curso => curso.id === id);
+    const indice = programacion.findIndex(curso => curso.id == id);
 
     if (indice >= 0) {
         programacion[indice] = cursoActualizado;
@@ -63,10 +63,10 @@ routerProgramacion.patch("/:id", (req, res) => {
     const infoActualizada = req.body;
     const id = req.params.id;
 
-    const indice = programacion.findIndex(curso => curso.id === id);
+    const indice = programacion.findIndex(curso => curso.id == id);
 
     if (indice >= 0) {
-        const cursoAModificar = programacion[indice] =
+        const cursoAModificar = programacion[indice] 
             Object.assign(cursoAModificar, infoActualizada);   
     }
     res.send(JSON.stringify(programacion));
@@ -75,7 +75,7 @@ routerProgramacion.patch("/:id", (req, res) => {
 routerProgramacion.delete("/:id", (req, res) => {
     const id = req.params.id;
 
-    const indice = programacion.findIndex(curso => curso.id === id);
+    const indice = programacion.findIndex(curso => curso.id == id);
 
     // El método splice() se utiliza para eliminar elementos de un array.
     if (indice >= 0) {
